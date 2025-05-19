@@ -7,6 +7,7 @@ public class UIManager : MonoBehaviour
     public TextMeshProUGUI oreTitle;
     public TextMeshProUGUI oreDescription;
     public GameObject scanPrompt;
+    public TMPro.TextMeshProUGUI scanProgressText;
 
     public void ShowOrePopup(OreData oreData)
     {
@@ -35,5 +36,10 @@ public class UIManager : MonoBehaviour
     public void HideScanPrompt()
     {
         scanPrompt.SetActive(false);
+    }
+
+    public void UpdateScanProgress(int scanned, int total)
+    {
+        scanProgressText.text = $"Scanned: {scanned} / {total} Ores";
     }
 }

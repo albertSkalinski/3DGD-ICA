@@ -23,17 +23,11 @@ public class OreScanner : MonoBehaviour
             if (ore != null)
             {
                 uiManager.ShowScanPrompt();
-
-                if (Keyboard.current.eKey.wasPressedThisFrame)
-                {
-                    uiManager.ShowOrePopup(ore.oreData);
-                }
-
-                return; // early exit if ore was hit
+                return;
             }
         }
 
-        uiManager.HideScanPrompt(); // hide if no ore hit
+        uiManager.HideScanPrompt();
     }
 
     private void OnEnable()
@@ -56,6 +50,11 @@ public class OreScanner : MonoBehaviour
             Ore ore = hit.collider.GetComponent<Ore>();
             if (ore != null)
             {
+                if (ore.Scan())
+                {
+                    GameManager.Instance.RegisterScan();
+                }
+
                 uiManager.ShowOrePopup(ore.oreData);
             }
         }
