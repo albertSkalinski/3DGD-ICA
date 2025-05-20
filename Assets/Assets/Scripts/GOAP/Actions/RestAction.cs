@@ -1,5 +1,9 @@
 using UnityEngine;
 
+/// <summary>
+/// A GOAP action that makes the agent rest for a short duration.
+/// </summary>
+
 public class RestAction : GoapAction
 {
     private float restDuration = 1f;
@@ -7,13 +11,13 @@ public class RestAction : GoapAction
 
     private void Start()
     {
-        AddPrecondition("IsTired", true);        // Only rest when tired
-        AddEffect("IsRested", true);             // Outcome of resting
+        AddPrecondition("IsTired", true);
+        AddEffect("IsRested", true);
     }
 
     public override bool CheckProceduralPrecondition(GameObject agent)
     {
-        // No conditions required in environment (not world-based)
+        //No conditions required in environment (not world-based)
         return true;
     }
 

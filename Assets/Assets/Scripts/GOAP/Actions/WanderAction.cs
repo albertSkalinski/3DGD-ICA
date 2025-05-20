@@ -1,6 +1,11 @@
 using UnityEngine;
 using UnityEngine.AI;
 
+/// <summary>
+/// A GOAP action that causes the agent to wander to a random nearby point.
+/// </summary>
+
+
 public class WanderAction : GoapAction
 {
     private float wanderRadius = 8f;

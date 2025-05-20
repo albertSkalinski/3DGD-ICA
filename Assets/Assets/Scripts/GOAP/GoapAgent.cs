@@ -1,6 +1,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// GOAP agent that selects and performs actions
+/// based on the current world state and goals.
+/// </summary>
+
 [RequireComponent(typeof(WorldState))]
 public class GoapAgent : MonoBehaviour
 {
@@ -19,13 +24,12 @@ public class GoapAgent : MonoBehaviour
     {
         worldState = GetComponent<WorldState>();
 
-        // Collect all attached actions
+        //Collects all attached actions
         foreach (GoapAction action in GetComponents<GoapAction>())
         {
             availableActions.Add(action);
         }
 
-        // Set default world state
         worldState.SetState("IsTired", false);
         worldState.SetState("IsRested", false);
         worldState.SetState("PlayerNearby", false);
@@ -34,14 +38,17 @@ public class GoapAgent : MonoBehaviour
 
     void Update()
     {
-        SenseEnvironment(); // Check nearby world facts
+        //Check nearby world
+        SenseEnvironment();
 
+        //No plan available or plan is empty
         if (currentPlan == null || currentPlan.Count == 0)
         {
             currentGoal = CreateGoal(); // Set next goal
             currentPlan = planner.Plan(availableActions, worldState.states, currentGoal);
         }
 
+        //If a plan is available, execute the next action
         if (currentPlan != null && currentPlan.Count > 0)
         {
             GoapAction action = currentPlan.Peek();
@@ -60,15 +67,15 @@ public class GoapAgent : MonoBehaviour
 
     private Dictionary<string, bool> CreateGoal()
     {
-        // Priority 1: Flee if player is nearby
+        //Priority 1: Flee if player is nearby
         if (worldState.GetState("PlayerNearby"))
             return new Dictionary<string, bool> { { "IsSafe", true } };
 
-        // Priority 2: Rest if tired
+        //Priority 2: Rest if tired
         if (worldState.GetState("IsTired"))
             return new Dictionary<string, bool> { { "IsRested", true } };
 
-        // Default: wander
+        //Default: wander
         return new Dictionary<string, bool> { { "HasWandered", true } };
     }
 
@@ -95,6 +102,7 @@ public class GoapAgent : MonoBehaviour
         }
     }
 
+    //Checks for player
     private void SenseEnvironment()
     {
         GameObject player = GameObject.FindWithTag("Player");

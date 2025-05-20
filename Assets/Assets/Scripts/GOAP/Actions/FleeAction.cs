@@ -1,6 +1,11 @@
 using UnityEngine;
 using UnityEngine.AI;
 
+/// <summary>
+/// A GOAP action that makes the agent flee from the player
+/// when the player is nearby, aiming to reach a "safe" location.
+/// </summary>
+
 public class FleeAction : GoapAction
 {
     private NavMeshAgent agent;
@@ -22,7 +27,7 @@ public class FleeAction : GoapAction
         Vector3 fleeDir = (transform.position - player.transform.position).normalized;
         fleeTarget = transform.position + fleeDir * fleeDistance;
 
-        // Ensure fleeTarget is on the NavMesh
+        //Ensure fleeTarget is on the NavMesh
         return NavMesh.SamplePosition(fleeTarget, out NavMeshHit hit, 2f, NavMesh.AllAreas);
     }
 

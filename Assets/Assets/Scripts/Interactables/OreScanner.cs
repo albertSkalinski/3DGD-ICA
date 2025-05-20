@@ -1,5 +1,5 @@
 using UnityEngine;
-using UnityEngine.InputSystem; // new input system
+using UnityEngine.InputSystem;
 
 public class OreScanner : MonoBehaviour
 {
