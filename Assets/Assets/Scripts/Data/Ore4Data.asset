@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91d2a6f4bc2866e4a9d3313aa7f2758a, type: 3}
   m_Name: Ore4Data
   m_EditorClassIdentifier: 
-  oreName: Ore 4
-  description: blah blah 4
+  oreName: Uraninite
+  description: "A dark and heavy rock that can glow under special lights \u2014 cool
+    and a little spooky!\nIt's packed with uranium, which powers space missions and
+    science labs."

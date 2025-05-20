@@ -12,5 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91d2a6f4bc2866e4a9d3313aa7f2758a, type: 3}
   m_Name: Ore1Data
   m_EditorClassIdentifier: 
-  oreName: Ore 1
-  description: blah blah 1
+  oreName: Azurite
+  description: 'This bright blue rock looks like it came from outer space!
+
+    Scientists
+    love it because it means copper might be hiding nearby.'

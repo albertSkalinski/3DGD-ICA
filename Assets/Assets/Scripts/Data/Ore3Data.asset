@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91d2a6f4bc2866e4a9d3313aa7f2758a, type: 3}
   m_Name: Ore3Data
   m_EditorClassIdentifier: 
-  oreName: Ore 3
-  description: blah blah 3
+  oreName: Bismuthinite
+  description: "This silvery ore hides bismuth, a metal that can form rainbow crystals!\nIt\u2019s
+    found deep underground and sometimes shows up near gold."

@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91d2a6f4bc2866e4a9d3313aa7f2758a, type: 3}
   m_Name: Ore2Data
   m_EditorClassIdentifier: 
-  oreName: Ore 2
-  description: blah blah 2
+  oreName: Galena
+  description: "Galena shines like silver and forms perfect little cubes \u2014 almost
+    like Minecraft blocks!\nIt\u2019s full of lead and sometimes even a little silver."
