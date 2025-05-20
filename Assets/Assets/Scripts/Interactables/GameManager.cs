@@ -26,4 +26,8 @@ public class GameManager : MonoBehaviour
         scannedOres++;
         uiManager.UpdateScanProgress(scannedOres, totalOres);
     }
+    public bool AllOresScanned()
+    {
+        return scannedOres >= totalOres;
+    }
 }
